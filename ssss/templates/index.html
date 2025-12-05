@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekh.ai - Handwriting Summarizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <nav class="navbar">
+        <div class="logo">Lekh<span class="gradient-text">.ai</span></div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#testimonials">Reviews</a>
+            <button id="login-btn" class="nav-btn">Login with Google</button>
+            <div id="user-profile" class="hidden">
+                <img id="user-photo" src="" alt="User">
+                <span id="user-name"></span>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Unlock the Power of <br><span class="gradient-text">Handwritten Data</span></h1>
+            <p class="subtitle">Instantly digitize and summarize your handwritten notes, documents, and PDFs in any
+                Indian language with our advanced AI.</p>
+            <a href="#app" class="cta-btn">Get Started</a>
+        </div>
+    </header>
+
+    <section id="features" class="features-section">
+        <h2>Why Choose Lekh.ai?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Accurate OCR</h3>
+                <p>State-of-the-art recognition for even the messiest handwriting.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Multilingual</h3>
+                <p>Summarize content in Hindi, Tamil, Telugu, and 7+ other languages.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Summary</h3>
+                <p>Get concise, actionable summaries from long documents in seconds.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>PDF Support</h3>
+                <p>Process multi-page PDFs seamlessly and extract all information.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works-section">
+        <h2>How It Works</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Upload</h3>
+                <p>Drag and drop your image or PDF file containing handwritten text.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Select Language</h3>
+                <p>Choose your preferred Indian language for the summary output.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Get Results</h3>
+                <p>Receive digitized text and a smart summary in seconds.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="stats-section">
+        <div class="stat-item">
+            <span class="stat-number" data-target="123">0</span>
+            <span class="stat-label">Documents Processed</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number" data-target="95.9">0</span>%
+            <span class="stat-label">Accuracy Rate</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number" data-target="10">0</span>
+            <span class="stat-label">Languages Supported</span>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+        <h2>Trusted by Students & Professionals</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="quote">"Lekh.ai saved me hours of typing up my lecture notes. The Hindi summary was spot on!"
+                </p>
+                <div class="author">- Priya Sharma, Student</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="quote">"Incredible accuracy even with my doctor's handwriting. A game changer for medical
+                    records."</p>
+                <div class="author">- Dr. Rajesh Kumar</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="quote">"I use it to digitize old family letters in Tamil. It preserves the history perfectly."
+                </p>
+                <div class="author">- Anand Ravi, Historian</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="app" class="app-section hidden">
+        <div class="container">
+            <header class="app-header">
+                <h2>Start Digitizing</h2>
+                <p class="subtitle">Upload your document below</p>
+            </header>
+
+            <div class="upload-section" id="drop-zone">
+                <div class="scan-line"></div>
+                <div class="upload-content">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                    <p>Drag & Drop your file here</p>
+                    <p class="small-text">or <span class="browse-text">browse</span> to upload (PDF, JPG, PNG)</p>
+                    <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                </div>
+            </div>
+
+            <div class="controls">
+                <label for="language-select">Select Output Language</label>
+                <div class="select-wrapper">
+                    <select id="language-select">
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Tamil">Tamil</option>
+                        <option value="Telugu">Telugu</option>
+                        <option value="Kannada">Kannada</option>
+                        <option value="Malayalam">Malayalam</option>
+                        <option value="Bengali">Bengali</option>
+                        <option value="Marathi">Marathi</option>
+                        <option value="Gujarati">Gujarati</option>
+                        <option value="Punjabi">Punjabi</option>
+                    </select>
+                </div>
+                <button id="analyze-btn" class="primary-btn" disabled>
+                    <span>Analyze Document</span>
+                    <div class="loader" id="btn-loader"></div>
+                </button>
+            </div>
+
+            <div id="terminal-section" class="terminal-section hidden">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">System Processing...</span>
+                </div>
+                <div class="terminal-body" id="terminal-logs">
+                    <!-- Logs will appear here -->
+                </div>
+            </div>
+
+            <div id="result-section" class="result-section hidden">
+                <div class="result-card">
+                    <h2>Analysis Result</h2>
+                    <div id="result-content" class="markdown-content"></div>
+                    <div class="download-controls"
+                        style="margin-top: 20px; display: flex; gap: 10px; align-items: center;">
+                        <select id="download-format" class="format-select"
+                            style="padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                            <option value="txt">Text File (.txt)</option>
+                            <option value="json">JSON (.json)</option>
+                        </select>
+                        <button id="download-btn" class="primary-btn">Download Result</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <details>
+                    <summary>Is my data secure?</summary>
+                    <p>Yes, we process your files securely and delete them immediately after analysis. We do not store
+                        your documents.</p>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>What file formats are supported?</summary>
+                    <p>We support JPG, PNG, and PDF files. For PDFs, we can process multiple pages at once.</p>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Is it free to use?</summary>
+                    <p>Lekh.ai is currently free for personal use during our beta period.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lekh.ai. All rights reserved.</p>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAc7f9NSdI1bacyo_ciKK0q6q04rYXTKsk",
+            authDomain: "lekhhai.firebaseapp.com",
+            projectId: "lekhhai",
+            storageBucket: "lekhhai.firebasestorage.app",
+            messagingSenderId: "1033334878498",
+            appId: "1:1033334878498:web:9e65eabebb63dca0bbf57b",
+            measurementId: "G-76CBK9Z6H7"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        const loginBtn = document.getElementById('login-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const userProfile = document.getElementById('user-profile');
+        const userPhoto = document.getElementById('user-photo');
+        const userName = document.getElementById('user-name');
+        const appSection = document.getElementById('app');
+        const ctaBtn = document.querySelector('.cta-btn');
+
+        loginBtn.addEventListener('click', () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    console.log("Logged in:", result.user);
+                }).catch((error) => {
+                    console.error("Login error:", error);
+                });
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                console.log("Logged out");
+            }).catch((error) => {
+                console.error("Logout error:", error);
+            });
+        });
+
+        if (ctaBtn) {
+            ctaBtn.addEventListener('click', (e) => {
+                if (!auth.currentUser) {
+                    e.preventDefault();
+                    loginBtn.click();
+                }
+            });
+        }
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                loginBtn.classList.add('hidden');
+                userProfile.classList.remove('hidden');
+                userPhoto.src = user.photoURL;
+                userName.textContent = user.displayName.split(' ')[0]; // First name
+                appSection.classList.remove('hidden');
+
+                // Scroll to app if just logged in via CTA
+                if (window.location.hash === '#app') {
+                    appSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                loginBtn.classList.remove('hidden');
+                userProfile.classList.add('hidden');
+                appSection.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}?v=3"></script>
+</body>
+
+</html>

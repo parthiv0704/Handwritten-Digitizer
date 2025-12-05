@@ -1,0 +1,8 @@
+flask
+python-dotenv
+groq
+pdf2image
+werkzeug
+gunicorn
+flask-cors
+Pillow
