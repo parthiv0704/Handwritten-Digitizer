@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.9-slim
 
 # Install system dependencies (Poppler for pdf2image)
 RUN apt-get update && apt-get install -y \
