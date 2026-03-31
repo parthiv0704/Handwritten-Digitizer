@@ -1,24 +1,23 @@
 FROM python:3.9-slim
 
-# Install system dependencies (Poppler for pdf2image)
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     poppler-utils \
     && rm -rf /var/lib/apt/lists/*
 
-# Set working directory
 WORKDIR /app
 
-# Copy requirements
-COPY ssss/ .
+# Step 1: Copy only requirements first (best for caching)
+# We use './' because Jenkins will already be inside the 'ssss' folder
+COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Step 2: Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
+# Step 3: Copy everything else from the current directory (the 'ssss' folder)
 COPY . .
 
-# Expose port
 EXPOSE 5000
 
-# Run the application
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
