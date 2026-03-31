@@ -9,13 +9,13 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy requirements
-COPY ssss/requirements.txt .
+COPY ssss/ .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-COPY ssss/ .
+COPY . .
 
 # Expose port
 EXPOSE 5000
